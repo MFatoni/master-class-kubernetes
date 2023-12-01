@@ -31,9 +31,16 @@ inside node always contains kubelet, kube-proxy, container manager
 ```
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="server --disable=traefik --docker" sh -
 sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+sudo apt-get -y install socat
 ```
 
 > Install k3s.
+
+```
+/usr/local/bin/k3s-uninstall.sh
+```
+
+> Uninstall k3s.
 
 ```
 kubectl get node
@@ -46,3 +53,36 @@ kubectl describe node _node_name
 ```
 
 > See node description.
+
+Pod
+
+pod -> the smallest unit that can be deployed on kubernetes
+pod can be contained more than 1 container
+pod = our application that running on kubernetes cluster
+
+
+```
+kubectl get pod
+kubectl get pod -o wide
+```
+
+> See all pod.
+
+
+```
+kubectl describe pod _pod_name
+```
+
+> See pod description.
+
+```
+kubectl create -f _file_name.yaml
+```
+
+> Create pod.
+
+```
+kubectl port-forward --address 0.0.0.0 _pod_name _external_port:_internal_port 
+```
+
+> Forward port.
