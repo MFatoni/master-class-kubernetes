@@ -34,25 +34,25 @@ sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 sudo apt-get -y install socat
 ```
 
-> Install k3s.
+> install k3s.
 
 ```
 /usr/local/bin/k3s-uninstall.sh
 ```
 
-> Uninstall k3s.
+> uninstall k3s.
 
 ```
 kubectl get node
 ```
 
-> See all node.
+> see all node.
 
 ```
 kubectl describe node _node_name
 ```
 
-> See node description.
+> see node description.
 
 Pod
 
@@ -66,23 +66,59 @@ kubectl get pod
 kubectl get pod -o wide
 ```
 
-> See all pod.
-
+> see all pod.
 
 ```
 kubectl describe pod _pod_name
 ```
 
-> See pod description.
+> see pod description.
 
 ```
 kubectl create -f _file_name.yaml
 ```
 
-> Create pod.
+> create pod.
 
 ```
 kubectl port-forward --address 0.0.0.0 _pod_name _external_port:_internal_port 
 ```
 
-> Forward port.
+> forward port.
+
+label -> add mark to the pod, organize pod, space is not allowed, label also available on another resource such as replication controller, replica set, service, etc
+
+```
+kubectl get pod --show-labels
+```
+
+> show pod labels
+
+
+```
+kubectl label pod _pod_name _key=_value --overwrite
+```
+
+> add / update pod labels
+
+```
+kubectl get pods -l key
+kubectl get pods -l key=value
+kubectl get pods -l ‘!key’
+kubectl get pods -l key!=value
+kubectl get pods -l ‘key in (value1,value2)’
+kubectl get pods -l ‘key notin (value1,value2)’
+kubectl get pods -l key,key2=value
+kubectl get pods -l key=value,key2=value
+```
+
+> querying pod.
+
+annotation -> cant filter by using annotation, usually used to add description, have a max size of 256kb
+
+
+```
+kubectl annotate pod _pod_name _key=_value --overwrite
+```
+
+> add / update pod annotation
