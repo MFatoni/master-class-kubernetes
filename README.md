@@ -34,25 +34,25 @@ sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 sudo apt-get -y install socat
 ```
 
-> install k3s.
+> install k3s
 
 ```
 /usr/local/bin/k3s-uninstall.sh
 ```
 
-> uninstall k3s.
+> uninstall k3s
 
 ```
 kubectl get node
 ```
 
-> see all node.
+> see all node
 
 ```
 kubectl describe node _node_name
 ```
 
-> see node description.
+> see node description
 
 Pod
 
@@ -66,25 +66,33 @@ kubectl get pod
 kubectl get pod -o wide
 ```
 
-> see all pod.
+> see all pod
 
 ```
 kubectl describe pod _pod_name
 ```
 
-> see pod description.
+> see pod description
 
 ```
 kubectl create -f _file_name.yaml
 ```
 
-> create pod.
+> create pod
+
+```
+kubectl delete pod _pod1_name _pod2_name _pod3_name
+kubectl delete pod -l _key=_value
+kubectl delete pod --all --namespace _namespace
+```
+
+> delete pod
 
 ```
 kubectl port-forward --address 0.0.0.0 _pod_name _external_port:_internal_port 
 ```
 
-> forward port.
+> forward port
 
 label -> add mark to the pod, organize pod, space is not allowed, label also available on another resource such as replication controller, replica set, service, etc
 
@@ -102,17 +110,17 @@ kubectl label pod _pod_name _key=_value --overwrite
 > add / update pod labels
 
 ```
-kubectl get pods -l key
-kubectl get pods -l key=value
-kubectl get pods -l ‘!key’
-kubectl get pods -l key!=value
-kubectl get pods -l ‘key in (value1,value2)’
-kubectl get pods -l ‘key notin (value1,value2)’
-kubectl get pods -l key,key2=value
-kubectl get pods -l key=value,key2=value
+kubectl get pods -l _key
+kubectl get pods -l _key=_value
+kubectl get pods -l ‘!_key’
+kubectl get pods -l _key!=_value
+kubectl get pods -l ‘_key in (_value1,_value2)’
+kubectl get pods -l ‘_key notin (_value1,_value2)’
+kubectl get pods -l _key,_key2=_value
+kubectl get pods -l _key=_value,_key2=_value
 ```
 
-> querying pod.
+> querying pod
 
 annotation -> cant filter by using annotation, usually used to add description, have a max size of 256kb
 
@@ -122,3 +130,36 @@ kubectl annotate pod _pod_name _key=_value --overwrite
 ```
 
 > add / update pod annotation
+
+namespace -> to separate resource for multi tenant, team, environment, resources can have a same name in different namespace, pod in different namespace can communicate
+
+```
+kubectl get namespaces
+kubectl get namespace
+kubectl get ns
+
+kubectl get pod --namespace _namespace
+kubectl get pod -n _namespace
+```
+
+> see namespaces
+
+```
+kubectl create -f _file_name.yaml --namespace _namespace
+```
+
+> create pod on namespace
+
+```
+kubectl delete namespace _namespace
+```
+
+> delete namespace, and all the pod inside of it
+
+probe -> liveness, readiness, startup probe
+
+kubelet check when should kubelet restart pod using liveness probe
+kubelet check is pod ready to received the traffic using readiness probe. there wont be any incoming traffic if not ready.
+kubelet check is pod ready to run. if it is not ready, liveness and readiness checking wont be conducted.
+
+probe mechanism -> http get, tcp socket, command exec
