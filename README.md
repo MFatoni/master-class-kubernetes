@@ -163,3 +163,28 @@ kubelet check is pod ready to received the traffic using readiness probe. there 
 kubelet check is pod ready to run. if it is not ready, liveness and readiness checking wont be conducted.
 
 probe mechanism -> http get, tcp socket, command exec
+
+replication controller 
+responsible to always make the pod is running
+if pod missing, if there is node off, replication controller will automatically run that pod
+replication controller usually handle more than 1 pod
+replication controller will always make sure the running pod have a same with the selected number
+
+replication controller components
+label selecter, pod marker
+replica count, total pod that should be running
+pod template, template to run the pod
+
+```
+kubectl get replicationcontrollers
+kubectl get replicationcontroller
+kubectl get rc
+```
+
+> see replication controller
+
+```
+kubectl delete rc _replication_controller_name --cascade=true
+```
+
+> delete replication controller. if cascade is set to true, all pod will be also deleted.
