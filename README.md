@@ -219,3 +219,11 @@ kubectl logs _resource_name
 ```
 
 > see logs
+
+node selector -> ask kubernetes to run on specific node
+
+```
+kubectl label node _node_name _key=_value
+```
+
+> add label to node
