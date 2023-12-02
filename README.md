@@ -188,3 +188,8 @@ kubectl delete rc _replication_controller_name --cascade=true
 ```
 
 > delete replication controller. if cascade is set to true, all pod will be also deleted.
+
+replica set -> new generation of replication controller (more expresive controller)
+
+matchLabels == replication controller
+match = In, NotIn, Exist, NotExists
