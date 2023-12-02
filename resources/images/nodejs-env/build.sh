@@ -1,11 +1,11 @@
 # Build image
-docker build -t khannedy/nodejs-env .
+docker build -t master-class-kubernetes/nodejs-env .
 
 # Push container
-docker push khannedy/nodejs-env
+docker push master-class-kubernetes/nodejs-env
 
 # Create container
-docker container create --name nodejs-env khannedy/nodejs-env
+docker container create --name nodejs-env master-class-kubernetes/nodejs-env
 
 # Start container
 docker container start nodejs-env

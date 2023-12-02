@@ -10,4 +10,4 @@ spec:
       restartPolicy: Never
       containers:
         - name: nodejs-job
-          image: khannedy/nodejs-job
+          image: master-class-kubernetes/nodejs-job

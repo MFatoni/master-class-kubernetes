@@ -11,7 +11,6 @@ spec:
     path: /data/location
 
 ---
-
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -43,7 +42,7 @@ spec:
     spec:
       containers:
         - name: nodejs-stateful
-          image: khannedy/nodejs-stateful
+          image: master-class-kubernetes/nodejs-stateful
           env:
             - name: POD_NAME
               valueFrom:

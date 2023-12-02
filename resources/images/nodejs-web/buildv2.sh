@@ -1,11 +1,11 @@
 # Build image
-docker build -t khannedy/nodejs-web:2 .
+docker build -t master-class-kubernetes/nodejs-web:2 .
 
 # Push container
-docker push khannedy/nodejs-web:2
+docker push master-class-kubernetes/nodejs-web:2
 
 # Create container
-docker container create --name nodejs-web:2 khannedy/nodejs-web:2
+docker container create --name nodejs-web:2 master-class-kubernetes/nodejs-web:2
 
 # Start container
 docker container start nodejs-web:2

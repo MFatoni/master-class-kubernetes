@@ -10,7 +10,7 @@ spec:
       emptyDir: {}
   containers:
     - name: nodejs-writer
-      image: khannedy/nodejs-writer
+      image: master-class-kubernetes/nodejs-writer
       volumeMounts:
         - mountPath: /app/folder-from-env
           name: html

@@ -18,7 +18,7 @@ spec:
           emptyDir: {}
       containers:
         - name: nodejs-writer
-          image: khannedy/nodejs-writer
+          image: master-class-kubernetes/nodejs-writer
           volumeMounts:
             - mountPath: /app/html
               name: html
@@ -31,7 +31,6 @@ spec:
               name: html
 
 ---
-
 apiVersion: v1
 kind: Service
 metadata:

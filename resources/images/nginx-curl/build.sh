@@ -1,11 +1,11 @@
 # Build image
-docker build -t khannedy/nginx-curl .
+docker build -t master-class-kubernetes/nginx-curl .
 
 # Push image
-docker push khannedy/nginx-curl
+docker push master-class-kubernetes/nginx-curl
 
 # Create container
-docker container create --name nginx-curl khannedy/nginx-curl
+docker container create --name nginx-curl master-class-kubernetes/nginx-curl
 
 # Start container
 docker container start nginx-curl

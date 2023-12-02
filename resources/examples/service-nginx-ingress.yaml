@@ -20,7 +20,6 @@ spec:
             - containerPort: 80
 
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -33,7 +32,6 @@ spec:
       targetPort: 80
 
 ---
-
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
@@ -42,7 +40,7 @@ metadata:
     name: nginx-ingress
 spec:
   rules:
-    - host: nginx.khannedy.local
+    - host: nginx.master-class-kubernetes.local
       http:
         paths:
           - path: /

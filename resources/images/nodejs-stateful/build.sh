@@ -1,11 +1,11 @@
 # Build image
-docker build -t khannedy/nodejs-stateful .
+docker build -t master-class-kubernetes/nodejs-stateful .
 
 # Push image
-docker push khannedy/nodejs-stateful
+docker push master-class-kubernetes/nodejs-stateful
 
 # Create container
-docker container create --name nodejs-stateful khannedy/nodejs-stateful
+docker container create --name nodejs-stateful master-class-kubernetes/nodejs-stateful
 
 # Start container
 docker container start nodejs-stateful

@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: nodejs-web
-          image: khannedy/nodejs-web
+          image: master-class-kubernetes/nodejs-web
           ports:
             - containerPort: 3000
           resources:
@@ -29,7 +29,6 @@ spec:
               memory: 1000Mi
 
 ---
-
 apiVersion: v1
 kind: Service
 metadata:

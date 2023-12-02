@@ -1,11 +1,11 @@
 # Build image
-docker build -t khannedy/nodejs-job .
+docker build -t master-class-kubernetes/nodejs-job .
 
 # Push container
-docker push khannedy/nodejs-job
+docker push master-class-kubernetes/nodejs-job
 
 # Create container
-docker container create --name nodejs-job khannedy/nodejs-job
+docker container create --name nodejs-job master-class-kubernetes/nodejs-job
 
 # Start container
 docker container start nodejs-job

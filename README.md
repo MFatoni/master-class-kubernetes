@@ -193,3 +193,29 @@ replica set -> new generation of replication controller (more expresive controll
 
 matchLabels == replication controller
 match = In, NotIn, Exist, NotExists
+
+daemon set
+replica set will randomly select the node
+if wanna run pod in each node, and the pod should only run 1 each node, daemon set can be utilized
+daemon set will run pod on each pod by default
+
+```
+kubectl get daemonsets
+```
+
+> see daemon set
+
+```
+kubectl delete daemonsets _daemonsets_name
+```
+
+> delete daemon set
+
+job -> run pod once
+cron job -> scheduled job (crontab.guru)
+
+```
+kubectl logs _resource_name
+```
+
+> see logs

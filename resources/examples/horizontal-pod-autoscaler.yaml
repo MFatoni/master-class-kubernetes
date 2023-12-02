@@ -16,12 +16,11 @@ spec:
     spec:
       containers:
         - name: nodejs-web
-          image: khannedy/nodejs-web:1
+          image: master-class-kubernetes/nodejs-web:1
           ports:
             - containerPort: 3000
 
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -36,7 +35,6 @@ spec:
       nodePort: 30001
 
 ---
-
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:

@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: nodejs-web
-          image: khannedy/nodejs-web:2
+          image: master-class-kubernetes/nodejs-web:2
           ports:
             - containerPort: 3000

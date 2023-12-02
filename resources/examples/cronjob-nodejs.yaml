@@ -17,4 +17,4 @@ spec:
           restartPolicy: Never
           containers:
             - name: nodejs-cronjob
-              image: khannedy/nodejs-job
+              image: master-class-kubernetes/nodejs-job
