@@ -227,3 +227,77 @@ kubectl label node _node_name _key=_value
 ```
 
 > add label to node
+
+```
+kubectl get all
+kubectl get all --namespace _namespace
+```
+   
+> show all resources
+
+```
+kubectl delete all --all                          
+kubectl delete all --all --namespace _namespace
+```
+
+> delete all resources
+
+service -> gate that can be used for accessing 1 or more pod, service ip wont be change, service will equal distribute the request to all pod, 
+service use label selector
+
+```
+kubectl get service
+```
+
+> show service
+   
+```
+kubectl delete service _service_name
+```
+
+> delete service
+
+```
+kubectl exec _pod_name -it -- /bin/sh
+```
+
+> access the pod
+
+
+```
+kubectl exec _pod_name -it -- env
+```
+
+> show all info variable
+
+dns of service -> _service_name._namespace_name.svc.cluster.local:_port
+
+> access the pod
+
+```
+kubectl get endpoints
+```
+
+> show all endpoints
+
+```
+kubectl describe service _service_name
+kubectl get endpoints _service_name
+```
+
+> show service endpoints
+
+service type -> ClusterIP, ExternalName, NodePort, LoadBalancer
+
+ClusterIP expose service for internal kubernetes
+ExternalName mapping to external endpoint
+NodePort expose node ip and port
+LoadBalancer expose to external for using LoadBalancer
+
+expose service 
+NodePort -> service
+LoadBalancer -> NodePort -> service
+ingress -> service (http only)
+
+
+
