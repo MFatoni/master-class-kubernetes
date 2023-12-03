@@ -299,5 +299,64 @@ NodePort -> service
 LoadBalancer -> NodePort -> service
 ingress -> service (http only)
 
+volume -> emptyDir, hostPath, gitRepo, nfs
+volume can be shared between container on pod
+
+env -> cant be reused
+configMap -> can be reused, contained unsensitive value
+secret -> contained sensitive value, only distribute into the node that required the value, value is encrypted, stored on memory not in physical storage 
+
+```
+kubectl get configmaps
+```
+
+> show configmaps
+
+```
+kubectl describe configmap _configmap_name
+```
+
+> see configmap detail
 
 
+```
+kubectl delete configmap _configmap_name
+```
+
+> delete configmap
+
+
+```
+kubectl get secret
+```
+
+> show secret
+
+```
+kubectl describe secret _secret_name
+```
+
+> see secret detail
+
+
+```
+kubectl delete secret _secret_name
+```
+
+> delete secret
+
+downward api -> get information about node and pod
+list downward api information
+requests.cpu
+requests.memory
+limits.cpu
+limits.memory
+metadata.name
+metadata.namespace
+metadata.uid
+metadata.labels[‘<KEY>’]
+metadata.annotations[‘<KEY>’]
+status.podIP
+spec.serviceAccountName
+spec.nodeName
+status.hostIP
