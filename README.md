@@ -398,4 +398,45 @@ kubectl delete pvc _persistent_volume_claim_name
 
 > persistent volume and persistent volume claim commands
 
-> rollback command
+stateless app -> Pod, ReplicaSet, ReplicationController, Deployment can be used for stateless app, stateless mean the app does not save any data.
+
+StatefulSet -> always have a consistent name, have a stable ip and storage
+
+```
+kubectl apply -f _file_name
+kubectl get statefulsets
+kubectl describe statefulset  _statefulset_name
+kubectl delete statefulset  _statefulset_name
+```
+
+> statefulset command
+
+computational resources
+pod will always use all resource
+request -> only running if container have a sufficient resources base on request
+limit -> max resource limit for container
+
+vertical scaling -> increase the resource (1 cpu to 2 cpu)
+horizontal scaling -> distribute the load by adding more pod (1 pod to 2 pod)
+
+```
+kubectl apply -f _file_name
+kubectl get vpa
+kubectl describe vpa  _vpa_name
+kubectl delete vpa  _vpa_name
+```
+
+> vertical scaling command
+
+```
+kubectl apply -f _file_name
+kubectl get hpa
+kubectl describe hpa  _hpa_name
+kubectl delete hpa  _hpa_name
+```
+
+> horizontal scaling command
+
+add on
+- kubernetes dashboard
+- metrics-server
