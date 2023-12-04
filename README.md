@@ -367,3 +367,15 @@ kubectl delete deployment _deployment_name
 
 > deployment command
 
+rollback
+
+```
+kubectl rollout history object_name _name
+kubectl rollout pause object_name _name
+kubectl rollout resume object_name _name
+kubectl rollout restart object_name _name
+kubectl rollout status object_name _name
+kubectl rollout undo object_name _name
+```
+
+> rollback command
