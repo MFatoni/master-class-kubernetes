@@ -379,3 +379,23 @@ kubectl rollout undo object_name _name
 ```
 
 > rollback command
+
+persistent volume -> claim system (create persistent storage -> create claim -> add claimed storage to pod)
+HostPath
+GCEPersistentDisk
+AWSElasticBlockStore
+AzureFile / AzureDisk
+
+```
+kubectl apply -f _file_name
+kubectl get pv
+kubectl describe pv _persistent_volume_name
+kubectl delete pv _persistent_volume_name
+kubectl get pvc
+kubectl describe pvc _persistent_volume_claim_name
+kubectl delete pvc _persistent_volume_claim_name
+```
+
+> persistent volume and persistent volume claim commands
+
+> rollback command
