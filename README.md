@@ -75,7 +75,7 @@ kubectl describe pod _pod_name
 > see pod description
 
 ```
-kubectl create -f _file_name.yaml
+kubectl create -f _file_name
 ```
 
 > create pod
@@ -145,7 +145,7 @@ kubectl get pod -n _namespace
 > see namespaces
 
 ```
-kubectl create -f _file_name.yaml --namespace _namespace
+kubectl create -f _file_name --namespace _namespace
 ```
 
 > create pod on namespace
@@ -246,23 +246,19 @@ service -> gate that can be used for accessing 1 or more pod, service ip wont be
 service use label selector
 
 ```
+kubectl apply -f _file_name
 kubectl get service
-```
-
-> show service
-   
-```
+kubectl describe service _service_name
 kubectl delete service _service_name
 ```
 
-> delete service
+> service command
 
 ```
 kubectl exec _pod_name -it -- /bin/sh
 ```
 
 > access the pod
-
 
 ```
 kubectl exec _pod_name -it -- env
@@ -307,46 +303,27 @@ configMap -> can be reused, contained unsensitive value
 secret -> contained sensitive value, only distribute into the node that required the value, value is encrypted, stored on memory not in physical storage 
 
 ```
+kubectl create -f _file_name
 kubectl get configmaps
-```
-
-> show configmaps
-
-```
 kubectl describe configmap _configmap_name
-```
-
-> see configmap detail
-
-
-```
 kubectl delete configmap _configmap_name
 ```
 
-> delete configmap
-
+> configmap command
 
 ```
+kubectl create -f _file_name
 kubectl get secret
-```
-
-> show secret
-
-```
 kubectl describe secret _secret_name
-```
-
-> see secret detail
-
-
-```
 kubectl delete secret _secret_name
 ```
 
-> delete secret
+> secret command
 
 downward api -> get information about node and pod
 list downward api information
+
+```
 requests.cpu
 requests.memory
 limits.cpu
@@ -360,3 +337,33 @@ status.podIP
 spec.serviceAccountName
 spec.nodeName
 status.hostIP
+```
+
+imperative management
+
+```
+kubectl create -f _file_name
+kubectl replace -f _file_name
+kubectl get -f _file_name -o yaml/json
+kubectl delete -f _file_name
+```
+
+declarative management -> configuration file will be saved on annotations
+
+```
+kubectl apply -f _file_name 
+```
+
+> create and update kubernetes object
+
+deployment -> create ReplicaSet -> create Pod
+
+```
+kubectl apply -f _file_name
+kubectl get deployments
+kubectl describe deployment _deployment_name
+kubectl delete deployment _deployment_name
+```
+
+> deployment command
+
